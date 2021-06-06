@@ -6,7 +6,12 @@ module.exports = {
 	],
 	darkMode: false, // or 'media' or 'class'
 	theme: {
-		extend: {},
+		extend: {
+			filter: ['hover', 'focus'],
+			brightness: {
+				60: '.6',
+			},
+		},
 		container: {
 			center: true,
 			padding: {

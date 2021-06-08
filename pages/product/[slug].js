@@ -164,7 +164,7 @@ export default function Post({allData = []}) {
 export async function getStaticPaths() {
 	const allProducts = await getAllProducts()
 	return {
-		paths: allProducts.map(({slug}) => `/product/${slug}`) || [],
+		paths: allProducts.map(({slug}) => `/product/${slug}`),
 		fallback: true,
 	}
 }

@@ -1,4 +1,4 @@
-export const removeBr = string => string.replace(/<\/?br>/g, '')
+export const removeBr = string => string && string.replace(/<\/?br>/g, '')
 
 export const removeScriptAndComments = text =>
-	text.replace(/<\!--.*?-->/g, '').replace(/<\/?script>/g, '')
+	text && text.replace(/<\!--.*?-->/g, '').replace(/<\/?script>/g, '')

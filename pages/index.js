@@ -11,6 +11,10 @@ import {getAllProducts, getPageBySlug} from 'lib/api'
 import {removeBr, removeScriptAndComments} from 'lib/utils'
 
 export default function Home({allData = []}) {
+	console.log(allData)
+	if (allData.error) {
+		return <h1>Loading</h1>
+	}
 	return (
 		<div>
 			<Head>
@@ -112,6 +116,14 @@ export async function getStaticProps() {
 	const allProducts = await getAllProducts(),
 		homeData = await getPageBySlug('home'),
 		configData = await getPageBySlug('config')
+	if (!configData) {
+		return {
+			props: {
+				allData: {error: true},
+			},
+			revalidate: 1,
+		}
+	}
 	return {
 		props: {
 			allData: {

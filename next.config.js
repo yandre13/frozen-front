@@ -1,5 +1,5 @@
 module.exports = {
 	images: {
-		domains: [process.env.HOST_NAME],
+		domains: [`${process.env.HOST_NAME}`],
 	},
 }

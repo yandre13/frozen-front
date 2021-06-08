@@ -1,17 +1,16 @@
 import React from 'react'
 import {useRouter} from 'next/router'
-import Head from 'next/head'
 import Link from 'next/link'
 import Banner from 'components/Banner'
 import Navbar from 'components/Navbar'
 import Card from 'components/Card'
 import Benefit from 'components/Benefit'
 import Footer from 'components/Footer'
+import SEO from 'components/SEO'
 import videojs from 'video.js'
 import 'video.js/dist/video-js.css'
 // get data from CMS
 import {getAllProducts, getPostBySlug, getPageBySlug} from 'lib/api'
-import {removeScriptAndComments} from 'lib/utils'
 
 export default function Post({allData = []}) {
 	const router = useRouter()
@@ -27,31 +26,15 @@ export default function Post({allData = []}) {
 			playsinline: true,
 			aspectRatio: '16:9',
 		})
-		return () => player.dispose()
+		return () => player && player.dispose()
 	}, [])
 
 	return (
 		<>
-			<Head>
-				<title>{allData?.productData?.title?.rendered} | Rich's Frozen</title>
-				<meta
-					name="description"
-					content={`Content ${allData?.productData?.title?.rendered}`}
-				/>
-				<link
-					rel="icon"
-					href={allData?.configData?.acf?.header?.favicon?.url}
-				/>
-				{allData?.configData?.acf?.tag_manager && (
-					<script
-						dangerouslySetInnerHTML={{
-							__html: removeScriptAndComments(
-								allData?.configData?.acf?.tag_manager,
-							),
-						}}
-					></script>
-				)}
-			</Head>
+			<SEO
+				config={allData?.configData || []}
+				single={allData?.productData || []}
+			/>
 
 			{router.isFallback ? (
 				<h2>Loading...</h2>
@@ -60,7 +43,7 @@ export default function Post({allData = []}) {
 					<header className="relative">
 						<Navbar
 							imgSrc={allData?.configData?.acf?.header?.logo?.url}
-							title={allData?.configData?.acf?.header?.site_title}
+							title={`Rich's Global`}
 							link={allData?.configData?.acf?.header?.link_logo}
 						/>
 						<Banner
@@ -68,7 +51,7 @@ export default function Post({allData = []}) {
 							title={allData?.productData?.acf?.banner?.title}
 							description={allData?.productData?.acf?.banner?.description}
 							btnText={allData?.productData?.acf?.banner?.button_text}
-							linkHDV={allData?.productData?.acf?.banner?.link_hdv}
+							linkHDV={allData?.productData?.acf?.banner?.hdv?.url}
 						/>
 					</header>
 					<main className="py-4 md:py-6 lg:py-8 xl:py-10">
@@ -154,7 +137,13 @@ export default function Post({allData = []}) {
 						</div>
 					</main>
 
-					<Footer />
+					<Footer
+						logoSrc={allData?.configData?.acf?.footer?.logo?.url}
+						bgSrc={allData?.configData?.acf?.footer?.background?.url}
+						links={allData?.configData?.acf?.footer?.links}
+						rrss={allData?.configData?.acf?.footer?.rrss}
+						policy={allData?.configData?.acf?.footer?.policy}
+					/>
 				</>
 			)}
 		</>
@@ -180,6 +169,6 @@ export async function getStaticProps({params}) {
 				configData,
 			},
 		},
-		revalidate: 1,
+		revalidate: 20,
 	}
 }

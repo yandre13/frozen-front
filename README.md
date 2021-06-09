@@ -13,7 +13,8 @@ How to run this application?
 
 4. Now it is ready to build
 
-5. you can use nginx to add ssl and run this app
+5. you can use nginx to add ssl and run this app with docker (example on
+   docker-compse-\* files)
 
 6. When everything is ok, yo should see a page with Loading like below.
 

@@ -18,4 +18,4 @@ How to run this application?
 
 6. When everything is ok, yo should see a page with Loading like below.
 
-![Alt text](/screenshot.png?raw=true)
+![Screenshot](./screenshot.png?raw=true)

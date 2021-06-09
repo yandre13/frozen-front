@@ -5,7 +5,7 @@ import {removeBr} from 'lib/utils'
 export default function index({imgSrc, title, description, btnText, linkHDV}) {
 	return (
 		<div className="w-full h-0 overflow-hidden relative pb-[80%] sm:pb-[50%] xl:pb-[100vh]">
-			<Image
+			<img
 				src={imgSrc}
 				alt={removeBr(title)}
 				className="absolute top-0 w-full h-full filter brightness-60"

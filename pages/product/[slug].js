@@ -54,8 +54,14 @@ export default function Post({allData = []}) {
 							linkHDV={allData?.productData?.acf?.banner?.hdv?.url}
 						/>
 					</header>
-					<main className="py-4 md:py-6 lg:py-8 xl:py-10">
-						<section className="container py-2 md:py-4 lg:py-6">
+					<main className="py-4 md:py-6 lg:py-8 xl:py-10 overflow-hidden">
+						<section className="container py-2 md:py-4 lg:py-6 relative">
+							<div className="absolute hidden md:block w-60 lg:w-72 xl:w-80 md:top-[-4%] md:left-[-25%] lg:top-[-5%] lg:left-[-14%] xl:left-[-9%]">
+								<img src="/img/1.png" alt="Icon 1" />
+							</div>
+							<div className="absolute hidden md:block w-60 lg:w-72 xl:w-80 md:bottom-[-18%] md:right-[-20%] lg:bottom-[-22%] lg:right-[-12%] xl:right-[-8%]">
+								<img src="/img/2.png" alt="Icon 2" />
+							</div>
 							<h2
 								className="text-4xl text-center md:text-5xl uppercase font-extrabold text-richs-3 mb-4"
 								dangerouslySetInnerHTML={{
@@ -63,6 +69,24 @@ export default function Post({allData = []}) {
 								}}
 							></h2>
 							<ul className="md:w-[90%] lg:w-[70%] mx-auto">
+								{allData?.productData?.acf?.benefits?.items?.map(
+									(item, idx) => (
+										<Benefit
+											key={idx}
+											imgSrc={item?.icon?.url}
+											description={item?.description}
+										/>
+									),
+								)}
+								{allData?.productData?.acf?.benefits?.items?.map(
+									(item, idx) => (
+										<Benefit
+											key={idx}
+											imgSrc={item?.icon?.url}
+											description={item?.description}
+										/>
+									),
+								)}
 								{allData?.productData?.acf?.benefits?.items?.map(
 									(item, idx) => (
 										<Benefit

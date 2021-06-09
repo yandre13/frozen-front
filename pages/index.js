@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Slider from 'components/Slider'
 import Navbar from 'components/Navbar'
 import Card from 'components/Card'
@@ -74,7 +73,7 @@ export default function Home({allData = []}) {
 									__html: allData?.homeData?.acf?.section_form?.description,
 								}}
 							></p>
-							<Image
+							<img
 								src={allData?.homeData?.acf?.section_form?.image?.url}
 								alt={removeBr(allData?.homeData?.acf?.section_form?.title)}
 								className="w-full"

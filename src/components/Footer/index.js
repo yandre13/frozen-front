@@ -1,6 +1,3 @@
-import React from 'react'
-import Image from 'next/image'
-
 export default function index({logoSrc, bgSrc, links, rrss, policy}) {
 	return (
 		<footer
@@ -56,7 +53,7 @@ export default function index({logoSrc, bgSrc, links, rrss, policy}) {
 										target="_blank"
 										className={idx !== items.length - 1 ? 'mr-2' : ''}
 									>
-										<Image src={rs.icon.url} width="30" height="30" alt={alt} />
+										<img src={rs.icon.url} width="30" height="30" alt={alt} />
 									</a>
 								)
 							})}

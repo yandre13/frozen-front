@@ -1,5 +1,3 @@
-import React from 'react'
-import Image from 'next/image'
 import {removeBr} from 'lib/utils'
 import Link from 'next/link'
 
@@ -18,7 +16,7 @@ export default function index({
 					aspect === 75 ? 'pb-[75%]' : 'pb-[85%]'
 				}`}
 			>
-				<Image
+				<img
 					src={imgSrc}
 					alt={removeBr(title)}
 					className="absolute top-0 w-full h-full transition duration-500 ease-out filter brightness-60 hover:brightness-75"

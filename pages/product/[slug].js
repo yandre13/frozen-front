@@ -78,24 +78,6 @@ export default function Post({allData = []}) {
 										/>
 									),
 								)}
-								{allData?.productData?.acf?.benefits?.items?.map(
-									(item, idx) => (
-										<Benefit
-											key={idx}
-											imgSrc={item?.icon?.url}
-											description={item?.description}
-										/>
-									),
-								)}
-								{allData?.productData?.acf?.benefits?.items?.map(
-									(item, idx) => (
-										<Benefit
-											key={idx}
-											imgSrc={item?.icon?.url}
-											description={item?.description}
-										/>
-									),
-								)}
 							</ul>
 						</section>
 						<section className="container py-2 md:py-4 lg:py-6">

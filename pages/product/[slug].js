@@ -69,15 +69,14 @@ export default function Post({allData = []}) {
 								}}
 							></h2>
 							<ul className="md:w-[90%] lg:w-[70%] mx-auto">
-								{allData?.productData?.acf?.benefits?.items?.map(
-									(item, idx) => (
+								{allData?.productData?.acf?.benefits?.items &&
+									allData.productData.acf.benefits.items.map((item, idx) => (
 										<Benefit
 											key={idx}
 											imgSrc={item?.icon?.url}
 											description={item?.description}
 										/>
-									),
-								)}
+									))}
 							</ul>
 						</section>
 						<section className="container py-2 md:py-4 lg:py-6">
@@ -88,19 +87,21 @@ export default function Post({allData = []}) {
 								}}
 							></h1>
 							<div>
-								<video
-									controls
-									id="richs-video"
-									className="video-js vjs-big-play-centered"
-									width="750"
-									height="500"
-									poster={allData?.productData?.acf?.video?.thumbnail?.url}
-								>
-									<source
-										src={allData?.productData?.acf?.video?.video?.url}
-										type="video/mp4"
-									/>
-								</video>
+								{allData?.productData?.acf?.video?.video?.url && (
+									<video
+										controls
+										id="richs-video"
+										className="video-js vjs-big-play-centered"
+										width="750"
+										height="500"
+										poster={allData?.productData?.acf?.video?.thumbnail?.url}
+									>
+										<source
+											src={allData.productData.acf.video.video.url}
+											type="video/mp4"
+										/>
+									</video>
+								)}
 							</div>
 						</section>
 						<section className="container py-2 md:py-4 lg:py-6">

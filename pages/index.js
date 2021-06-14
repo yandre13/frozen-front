@@ -89,6 +89,7 @@ export default function Home({allData = []}) {
 								}
 								formId={allData?.homeData?.acf?.section_form?.form?.id_form}
 								classname="md:mt-4"
+								callback={allData?.homeData?.acf?.section_form?.form?.callback}
 							/>
 						</article>
 					</div>

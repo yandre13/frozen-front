@@ -3,7 +3,7 @@ import {removeBr} from 'lib/utils'
 
 export default function Slide({imgSrc, title}) {
 	return (
-		<article className="keen-slider__slide number-slide1 w-full">
+		<article className="w-full">
 			<div className="w-full h-0 overflow-hidden relative pb-[50%] xl:pb-[100vh]">
 				<img
 					src={imgSrc}

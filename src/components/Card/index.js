@@ -29,7 +29,7 @@ export default function index({
 					></h3>
 					<Link href={href}>
 						<a
-							download={downloadable}
+							target={downloadable ? '_blank' : '_self'}
 							className="text-lg text-richs-1 uppercase font-bold px-4 py-3 bg-white"
 						>
 							{btnText}

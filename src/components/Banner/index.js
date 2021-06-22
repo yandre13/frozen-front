@@ -1,5 +1,4 @@
 import React from 'react'
-import Image from 'next/image'
 import {removeBr} from 'lib/utils'
 
 export default function index({imgSrc, title, description, btnText, linkHDV}) {
@@ -8,8 +7,9 @@ export default function index({imgSrc, title, description, btnText, linkHDV}) {
 			<img
 				src={imgSrc}
 				alt={removeBr(title)}
-				className="absolute top-0 w-full h-full filter brightness-60"
-				layout="fill"
+				className="absolute top-0 w-full h-full filter brightness-60 object-cover"
+				width="1920"
+				height="925"
 			/>
 			<div className="absolute h-full w-full top-0 flex flex-col justify-center">
 				<div className="container">
@@ -23,6 +23,7 @@ export default function index({imgSrc, title, description, btnText, linkHDV}) {
 					></p>
 					<a
 						href={linkHDV}
+						rel="noreferrer noopener"
 						download
 						target="_blank"
 						className="text-sm md:text-base text-white uppercase tracking-wider font-semibold px-4 py-3 border border-white

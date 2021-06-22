@@ -19,8 +19,9 @@ export default function index({
 				<img
 					src={imgSrc}
 					alt={removeBr(title)}
-					className="absolute top-0 w-full h-full transition duration-500 ease-out filter brightness-60 hover:brightness-75"
-					layout="fill"
+					className="absolute top-0 w-full h-full transition duration-500 ease-out filter brightness-60 hover:brightness-75 object-cover"
+					width="560"
+					height="420"
 				/>
 				<div className="absolute inset-x-0 bottom-[10%] lg:bottom-[9%] px-6 flex flex-wrap">
 					<h3
@@ -28,12 +29,19 @@ export default function index({
 						dangerouslySetInnerHTML={{__html: title}}
 					></h3>
 					<Link href={href}>
-						<a
-							target={downloadable ? '_blank' : '_self'}
-							className="text-lg text-richs-1 uppercase font-bold px-4 py-3 bg-white"
-						>
-							{btnText}
-						</a>
+						{downloadable ? (
+							<a
+								target="_blank"
+								rel="noreferrer noopener"
+								className="text-lg text-richs-1 uppercase font-bold px-4 py-3 bg-white"
+							>
+								{btnText}
+							</a>
+						) : (
+							<a className="text-lg text-richs-1 uppercase font-bold px-4 py-3 bg-white">
+								{btnText}
+							</a>
+						)}
 					</Link>
 				</div>
 			</div>

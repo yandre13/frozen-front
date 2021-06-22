@@ -8,7 +8,7 @@ export default function Slide({imgSrc, title}) {
 				<img
 					src={imgSrc}
 					alt={removeBr(title)}
-					className="absolute top-0 w-full h-full"
+					className="absolute top-0 w-full h-full object-cover"
 					width={1920}
 					height={925}
 				/>

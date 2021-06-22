@@ -80,7 +80,7 @@ export default function Home({allData = []}) {
 							<img
 								src={allData?.homeData?.acf?.section_form?.image?.url}
 								alt={removeBr(allData?.homeData?.acf?.section_form?.title)}
-								className="w-full"
+								className="w-full object-cover"
 								width={743}
 								height={641}
 							/>
@@ -121,7 +121,7 @@ export default function Home({allData = []}) {
 											.replace(textToReplace, '')
 										lb.innerHTML = `<div class="mktoAsterix"></div><span class="font-weight-normal font-title-color">${newText}<a style="font-weight: 800; padding: 0; text-decoration: underline;" class="font-weight-bold title-color" href="${getPolicyLink(
 											allData?.configData?.acf?.footer?.links?.items,
-										)}" target="_blank">${textToReplace}*</a></span>`
+										)}" target="_blank" rel="noreferrer noopener">${textToReplace}*</a></span>`
 										const modifyFormCheck = function modifyFormCheck(inputId) {
 											const chk = document.getElementById(inputId)
 											chk.parentElement.style.padding = '0 2px'

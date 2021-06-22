@@ -13,6 +13,9 @@ export default function Home({allData = []}) {
 	if (allData.error) {
 		return <h1>Loading</h1>
 	}
+	const getPolicyLink = arr =>
+		arr.find(e => e.text === 'POLÍTICA DE PRIVACIDAD')?.link
+
 	return (
 		<>
 			<SEO
@@ -25,6 +28,7 @@ export default function Home({allData = []}) {
 					imgSrc={allData?.configData?.acf?.header?.logo?.url}
 					title={`Rich's Global`}
 					link={allData?.configData?.acf?.header?.link_logo}
+					buttons={allData?.configData?.acf?.header?.buttons}
 				/>
 				<Slider slides={allData?.homeData?.acf?.slider?.slides} />
 			</header>
@@ -89,7 +93,42 @@ export default function Home({allData = []}) {
 								}
 								formId={allData?.homeData?.acf?.section_form?.form?.id_form}
 								classname="md:mt-4"
-								callback={allData?.homeData?.acf?.section_form?.form?.callback}
+								callback={() => {
+									const lb = document.querySelector(
+										'#LblagreementtoTermsofUseandPrivacyPolicy',
+									)
+									if (lb) {
+										const parent = lb.parentElement
+										parent.setAttribute(
+											'style',
+											'display: flex !important; flex-direction: row-reverse !important; justify-content: flex-end !important',
+										)
+										const container = parent.children[2]
+										const gutter = parent.children[1]
+										container.style.width = 'auto'
+										gutter.style.width = 'auto'
+										const grandPaParent = parent.parentElement.parentElement
+										grandPaParent.setAttribute(
+											'style',
+											'width: 100% !important',
+										)
+										const text = lb.childNodes[1]
+										const textToReplace =
+											allData?.homeData?.acf?.section_form?.form
+												?.callback_text || 'POLÍTICA DE PRIVACIDAD.'
+										const newText = ''
+											.concat(text.nodeValue)
+											.replace(textToReplace, '')
+										lb.innerHTML = `<div class="mktoAsterix"></div><span class="font-weight-normal font-title-color">${newText}<a style="font-weight: 800; padding: 0; text-decoration: underline;" class="font-weight-bold title-color" href="${getPolicyLink(
+											allData?.configData?.acf?.footer?.links?.items,
+										)}" target="_blank">${textToReplace}*</a></span>`
+										const modifyFormCheck = function modifyFormCheck(inputId) {
+											const chk = document.getElementById(inputId)
+											chk.parentElement.style.padding = '0 2px'
+										}
+										modifyFormCheck('agreementtoTermsofUseandPrivacyPolicy')
+									}
+								}}
 							/>
 						</article>
 					</div>

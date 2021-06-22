@@ -13,7 +13,13 @@ export default function index({config, single}) {
 			)}
 			<meta name="robots" content="index, follow" />
 			{single?.acf?.metadata?.open_graph?.url && (
-				<meta property="og:url" content={single.acf.metadata.open_graph.url} />
+				<>
+					<link rel="canonical" href={single.acf.metadata.open_graph.url} />
+					<meta
+						property="og:url"
+						content={single.acf.metadata.open_graph.url}
+					/>
+				</>
 			)}
 			{single?.acf?.metadata?.open_graph?.url && (
 				<meta property="og:type" content="website" />

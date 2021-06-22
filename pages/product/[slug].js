@@ -45,6 +45,7 @@ export default function Post({allData = []}) {
 							imgSrc={allData?.configData?.acf?.header?.logo?.url}
 							title={`Rich's Global`}
 							link={allData?.configData?.acf?.header?.link_logo}
+							buttons={allData?.configData?.acf?.header?.buttons}
 						/>
 						<Banner
 							imgSrc={allData?.productData?.acf?.banner?.image?.url}

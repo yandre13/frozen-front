@@ -11,7 +11,7 @@ export default function index({slides}) {
 					type: 'fade',
 					speed: 700,
 					autoplay: true,
-					interval: 5000,
+					interval: 7000,
 					pauseOnHover: false,
 					pauseOnFocus: false,
 					arrows: false,

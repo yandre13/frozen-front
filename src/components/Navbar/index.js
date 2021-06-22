@@ -32,7 +32,7 @@ const NavLink = ({text, hash, classnames}) => {
 	)
 }
 
-export default function index({imgSrc, title, link}) {
+export default function index({imgSrc, title, link, buttons}) {
 	return (
 		<section className="absolute w-full top-0 z-10">
 			<nav className="container relative flex justify-between inset-0">
@@ -49,12 +49,12 @@ export default function index({imgSrc, title, link}) {
 				</div>
 				<ul className="flex py-4 items-center">
 					<li className="mr-2">
-						<NavLink text="Productos" hash="#sectionProducts" />
+						<NavLink text={buttons[0]?.text} hash={buttons[0]?.hash} />
 					</li>
 					<li className="ml-2">
 						<NavLink
-							text="Participá"
-							hash="#sectionForm"
+							text={buttons[1]?.text}
+							hash={buttons[1]?.hash}
 							classnames="py-[6px] border border-white rounded-lg"
 						/>
 					</li>

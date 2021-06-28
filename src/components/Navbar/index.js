@@ -34,7 +34,7 @@ const NavLink = ({text, hash, classnames}) => {
 
 export default function index({imgSrc, title, link, buttons}) {
 	return (
-		<section className="absolute w-full top-0 z-10">
+		<section className="relative md:absolute w-full top-0 z-10 bg-gradient-to-r from-[#FF8A00] via-[#DE0622] to-[#A50023] md:bg-gradient-to-r md:from-transparent md:to-transparent">
 			<nav className="container relative flex justify-between inset-0">
 				<div className="py-4">
 					<a href={link}>

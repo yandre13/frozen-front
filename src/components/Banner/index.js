@@ -3,7 +3,7 @@ import {removeBr} from 'lib/utils'
 
 export default function index({imgSrc, title, description, btnText, linkHDV}) {
 	return (
-		<div className="w-full h-0 overflow-hidden relative pb-[65%] sm:pb-[50%] xl:pb-[100vh]">
+		<div className="w-full h-0 overflow-hidden relative pb-[65%] sm:pb-[54%] xl:pb-[100vh]">
 			<img
 				src={imgSrc}
 				alt={removeBr(title)}
@@ -14,7 +14,7 @@ export default function index({imgSrc, title, description, btnText, linkHDV}) {
 			<div className="absolute h-full w-full top-0 flex flex-col justify-center">
 				<div className="container">
 					<h2
-						className="text-white font-bold md:font-extrabold uppercase sm:pt-0 mb-2 md:my-4 text-2xl leading-6 sm:text-4xl md:text-5xl lg:text-7xl"
+						className="text-white font-bold md:font-extrabold uppercase sm:pt-4 lg:pt-8 mb-2 md:my-4 text-2xl leading-6 sm:text-4xl md:text-5xl xl:text-7xl rm-br lg:add-br"
 						dangerouslySetInnerHTML={{__html: title}}
 					></h2>
 					<p

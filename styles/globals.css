@@ -71,5 +71,11 @@ body {
 		.leading-1-1 {
 			line-height: 1.1;
 		}
+		.rm-br br {
+			display: none;
+		}
+		.add-br br {
+			display: block;
+		}
 	}
 }
